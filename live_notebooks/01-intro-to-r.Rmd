@@ -1,0 +1,226 @@
+---
+title: "Intro to R"
+output: html_notebook
+---
+
+**Working in R notebooks = Literate Programming**
+ - Combining text annotation (`markdown`) with code (`R`)
+ - Work interactively
+
+More on [R markdown](http://rmarkdown.rstudio.com/) & [notebooks](http://rmarkdown.rstudio.com/r_notebooks.html)
+
+
+```{r}
+3 + 5
+2 * 8
+```
+```{r}
+(weight_kg <- 55)
+weight_kg
+```
+
+```{r}
+2.2 * weight_kg
+```
+
+you can make notes
+```{r}
+weight_kg <- 57.5
+2.2 * weight_kg
+```
+
+```{r}
+weight_lb <- 2.2 * weight_kg
+weight_lb
+```
+
+make notes
+```{r}
+weight_kg <- 100
+weight_kg
+```
+
+```{r}
+# anything on this line will not execute
+2 * 3 # inline annotation
+```
+
+```{r}
+mass <- 47.5
+mass
+```
+```{r}
+age <- 122
+age
+```
+
+```{r}
+mass <- mass - 20
+mass
+```
+
+```{r}
+mass_index <- mass/age
+mass_index
+```
+
+## Functions
+
+```{r}
+a <- 10
+b <- sqrt(a)
+b
+```
+
+```{r}
+round(3.14159)
+```
+
+```{r}
+args(round)
+?round
+```
+
+```{r}
+round(3.14159, digits = 2)
+```
+
+```{r}
+round(3.14159, 2)
+```
+
+```{r}
+round(2, 3.14159)
+```
+```{r}
+round(digits = 2, x = 3.14159)
+```
+
+## Vectors
+
+```{r}
+weight_g <- c(50, 60, 65, 82)
+weight_g
+```
+```{r}
+animals <- c("mouse", "rat", "dog")
+animals
+```
+
+```{r}
+length(weight_g)
+```
+
+```{r}
+length(animals)
+```
+
+```{r}
+class(weight_g)
+class(animals)
+```
+
+```{r}
+weight_g <- c(weight_g, 90)
+weight_g
+```
+```{r}
+weight_g <- c(30, weight_g)
+weight_g
+```
+
+### Subsetting vectors
+
+```{r}
+animals <- c(animals, "cat")
+animals
+```
+
+```{r}
+animals[4]
+```
+
+```{r}
+animals[1:2]
+```
+```{r}
+animals[c(2,4)]
+```
+
+```{r}
+more_animals <- animals[c(1,2,3,2,1,4)]
+more_animals
+```
+
+```{r}
+weight_g <- c(21, 34, 39, 54, 55)
+weight_g[c(TRUE, FALSE, TRUE, TRUE, F)]
+```
+
+```{r}
+weight_g > 50
+```
+```{r}
+weight_g[weight_g > 50]
+```
+
+```{r}
+weight_g[weight_g < 30 | weight_g > 50]
+```
+
+```{r}
+weight_g[weight_g >= 30 & weight_g == 21]
+```
+```{r}
+animals[animals == "cat" | animals == "rat"]
+```
+
+```{r}
+animals
+animals %in% c("rat", "cat", "dog", "duck", "goat")
+```
+
+```{r}
+animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
+```
+
+`
+```{r}
+"four" > "five"
+4 > 5
+```
+
+```{r}
+heights <- c(2, 4, 4, NA, 6)
+```
+
+```{r}
+mean(heights)
+```
+
+```{r}
+max(heights)
+```
+
+```{r}
+mean(heights, na.rm = T)
+max(heights, na.rm = T)
+```
+
+```{r}
+heights == "NA"
+heights[!is.na(heights)]
+```
+```{r}
+na.omit(heights)
+```
+
+```{r}
+complete.cases(heights)
+```
+
+```{r}
+lengths <- c(10, 24, NA, 18, NA, 20)
+median(lengths, na.rm = T)
+```
+
